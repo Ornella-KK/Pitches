@@ -1,10 +1,7 @@
 from datetime import datetime
-
 from flask_login import UserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from app import db, login_manager
-
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -35,7 +32,6 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def user_loader(user_id):
     return User.query.get(user_id)
-
 
 class Post(db.Model):
     __tablename__ = 'posts'
