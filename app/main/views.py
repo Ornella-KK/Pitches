@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from . forms import PitchForm, CommentForm, UpdateProfile
 from .import main
 from .. import db
-from ..models import User, Pitch, Comment, Upvote, Downvote
+from ..models import User, Post, Comment, Upvote, Downvote
 
 #display categories on the landing page
 @main.route('/')
