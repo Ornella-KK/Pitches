@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand " href="/" id="logo"style="font-size:40px">One Minute Pitch</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/"> <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
+            {% if current_user.is_authenticated %}
+
+            <li class="nav-item mr-3"><a class="nav-link"><strong> {{current_user.username}}</strong> </a></li>
+            <li class="nav-item mr-3"><a class="nav-link" href="{{url_for('main.profile',name=current_user.username)}}"><strong>My Account</strong></a></li>
+            <li class="nav-item mr-3"><a class="nav-link" href="{{url_for('auth.logout')}}"><strong>LogOut</strong></a></li>
+            
+            {% else %}
+            
+            <li class="nav-item mr-3"><a class="nav-link" href="{{url_for('auth.login')}}"><strong>LogIn</strong></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url_for('auth.signup')}}"><strong>SignUp</strong></a></li>
+           
+            {%endif%}
+
+        </ul>
+    </div>
+</nav>
+         
